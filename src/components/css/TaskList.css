@@ -6,6 +6,11 @@
   max-width: 600px;
   width: 100%; 
 }
+button{
+  margin-left: 2px;
+  margin-right: 2px;
+  background-color: red;
+}
 
 .task-list li {
   display: flex;
@@ -51,10 +56,12 @@
 }
 
 .task-list button:nth-child(2) {
-  background-color: #dc3545;
+  background-color: black;
   color: #fff;
 }
 
+
 .task-list button:nth-child(2):hover {
-  background-color: #c82333;
+  background-color: #3c3939;
 }
+

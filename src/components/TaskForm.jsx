@@ -1,7 +1,7 @@
 import React from "react";
-import "./TaskForm.css";
+import "./css/TaskForm.css";
 
-const TaskForm = ({ newTask, setNewTask, onAdd }) => {
+const TaskForm = ({ newTask, setNewTask, onAdd, onUpdate, isEditing }) => {
   return (
     <div className="task-form">
       <input
@@ -14,11 +14,31 @@ const TaskForm = ({ newTask, setNewTask, onAdd }) => {
         type="text"
         placeholder="Description"
         value={newTask.description}
-        onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
+        onChange={(e) =>
+          setNewTask({ ...newTask, description: e.target.value })
+        }
       />
-      <button onClick={onAdd}>Ajouter</button>
+      {}
+      <select
+        value={newTask.status || 'à faire'}
+        onChange={(e) =>
+          setNewTask({ ...newTask, status: e.target.value })
+        }
+      >
+        <option value="à faire">À faire</option>
+        <option value="en cours">En cours</option>
+        <option value="terminée">Terminée</option>
+      </select>
+      
+      {isEditing ? (
+        <button onClick={onUpdate}>Mettre à jour</button>
+      ) : (
+        <button onClick={onAdd}>Ajouter</button>
+      )}
     </div>
   );
 };
+
+
 
 export default TaskForm;
